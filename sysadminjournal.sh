@@ -11,7 +11,6 @@ case $1 in
     echo "Журнал не инициализирован. Для инициализации введите sysadminjournal init"
     exit
     fi
-    #date >> ~/.sysadminjournal/journal
     clear
     echo "Введите заметку, после чего нажмите Enter"
     read -e s
@@ -26,7 +25,6 @@ case $1 in
     echo "Журнал не инициализирован. Для инициализации введите sysadminjournal init"
     exit
     fi
-    #date >> ~/.sysadminjournal/journal
     if [ -z "$2" ]; then
     echo "Для быстрого добавления заметки"
     echo "sysadminjournal qa Заметка"
@@ -71,7 +69,6 @@ case $1 in
     echo "Журнал не инициализирован. Для инициализации введите sysadminjournal init"
     exit
     fi
-    #date >> ~/.sysadminjournal/journal
     if [ -z "$2" ]; then
     echo "Введите файл для экспорта"
     echo "sysadminjournal ex path/to/outptut/file"
@@ -79,9 +76,20 @@ case $1 in
     fi
     cat ~/.sysadminjournal/journal > $2
     ;;
+   imp)
+    if [ -z "$2" ]; then
+    echo "Введите файл для экспорта"
+    echo "sysadminjournal ex path/to/outptut/file"
+    exit
+    fi
+    mkdir ~/.sysadminjournal 2>/dev/null
+    touch ~/.sysadminjournal/journal
+    cat $2 >> ~/.sysadminjournal/journal
+    ;;
 
   *)
     echo "sysadminjournal i                       - Инициализировать Журнал"
+    echo "sysadminjournal imp [файл для импорта]  - Импортировать журнал из файла (Так же выполняет инициализацию журнала)"
     echo "sysadminjournal a                       - Добавить запись"
     echo "sysadminjournal qa [Запись]             - Быстрое добавление записи"
     echo "sysadminjournal r                       - Показать журнал"

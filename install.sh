@@ -4,7 +4,7 @@ if [[ $EUID -ne 0 ]]; then
    exit
 fi
 echo "Installing requirements."
-apt-get install -y --no-install-recommends less nano
+apt-get install -y --no-install-recommends less nano grep
 echo "Installing notecrypt."
 cp sysadminjournal.sh /usr/bin/sysadminjournal
 chmod +x /usr/bin/sysadminjournal
