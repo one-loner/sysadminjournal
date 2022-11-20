@@ -78,8 +78,8 @@ case $1 in
     ;;
    imp)
     if [ -z "$2" ]; then
-    echo "Введите файл для экспорта"
-    echo "sysadminjournal ex path/to/outptut/file"
+    echo "Введите файл для импорта"
+    echo "sysadminjournal ex path/to/import/file"
     exit
     fi
     mkdir ~/.sysadminjournal 2>/dev/null
