@@ -31,7 +31,7 @@ case $1 in
     exit
     fi
     date >> ~/.sysadminjournal/journal
-    echo $2 >> ~/.sysadminjournal/journal
+    echo $2 $3 $4 $5 $6 $7 $8 $9 >> ~/.sysadminjournal/journal
     echo --------------------------------------------------------------------------------------- >> ~/.sysadminjournal/journal
     echo '' >> ~/.sysadminjournal/journal
     ;;
